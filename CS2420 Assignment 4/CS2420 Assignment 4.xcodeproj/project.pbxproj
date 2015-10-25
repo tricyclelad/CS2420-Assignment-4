@@ -1,0 +1,250 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		40EB2B511BDBFFC9000BBA38 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40EB2B501BDBFFC9000BBA38 /* test.cpp */; };
+		40EB2B591BDC002A000BBA38 /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40EB2B571BDC002A000BBA38 /* HashTable.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		40EB2B4B1BDBFFC9000BBA38 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		40EB2B4D1BDBFFC9000BBA38 /* CS2420 Assignment 4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CS2420 Assignment 4"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40EB2B501BDBFFC9000BBA38 /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
+		40EB2B571BDC002A000BBA38 /* HashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
+		40EB2B581BDC002A000BBA38 /* HashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashTable.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40EB2B4A1BDBFFC9000BBA38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40EB2B441BDBFFC9000BBA38 = {
+			isa = PBXGroup;
+			children = (
+				40EB2B4F1BDBFFC9000BBA38 /* CS2420 Assignment 4 */,
+				40EB2B4E1BDBFFC9000BBA38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		40EB2B4E1BDBFFC9000BBA38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40EB2B4D1BDBFFC9000BBA38 /* CS2420 Assignment 4 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40EB2B4F1BDBFFC9000BBA38 /* CS2420 Assignment 4 */ = {
+			isa = PBXGroup;
+			children = (
+				40EB2B501BDBFFC9000BBA38 /* test.cpp */,
+				40EB2B571BDC002A000BBA38 /* HashTable.cpp */,
+				40EB2B581BDC002A000BBA38 /* HashTable.h */,
+			);
+			path = "CS2420 Assignment 4";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40EB2B4C1BDBFFC9000BBA38 /* CS2420 Assignment 4 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40EB2B541BDBFFC9000BBA38 /* Build configuration list for PBXNativeTarget "CS2420 Assignment 4" */;
+			buildPhases = (
+				40EB2B491BDBFFC9000BBA38 /* Sources */,
+				40EB2B4A1BDBFFC9000BBA38 /* Frameworks */,
+				40EB2B4B1BDBFFC9000BBA38 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CS2420 Assignment 4";
+			productName = "CS2420 Assignment 4";
+			productReference = 40EB2B4D1BDBFFC9000BBA38 /* CS2420 Assignment 4 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		40EB2B451BDBFFC9000BBA38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Camron Blake Martinez";
+				TargetAttributes = {
+					40EB2B4C1BDBFFC9000BBA38 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = 40EB2B481BDBFFC9000BBA38 /* Build configuration list for PBXProject "CS2420 Assignment 4" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 40EB2B441BDBFFC9000BBA38;
+			productRefGroup = 40EB2B4E1BDBFFC9000BBA38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40EB2B4C1BDBFFC9000BBA38 /* CS2420 Assignment 4 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40EB2B491BDBFFC9000BBA38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40EB2B591BDC002A000BBA38 /* HashTable.cpp in Sources */,
+				40EB2B511BDBFFC9000BBA38 /* test.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		40EB2B521BDBFFC9000BBA38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		40EB2B531BDBFFC9000BBA38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		40EB2B551BDBFFC9000BBA38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		40EB2B561BDBFFC9000BBA38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40EB2B481BDBFFC9000BBA38 /* Build configuration list for PBXProject "CS2420 Assignment 4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40EB2B521BDBFFC9000BBA38 /* Debug */,
+				40EB2B531BDBFFC9000BBA38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40EB2B541BDBFFC9000BBA38 /* Build configuration list for PBXNativeTarget "CS2420 Assignment 4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40EB2B551BDBFFC9000BBA38 /* Debug */,
+				40EB2B561BDBFFC9000BBA38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 40EB2B451BDBFFC9000BBA38 /* Project object */;
+}
