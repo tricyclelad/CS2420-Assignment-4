@@ -23,7 +23,9 @@ enum Status { ACTIVE, EMPTY, DELETED };
 
 // We store two things.  The key itself and the record associated with the key.
 // In our case, the HashKey will be the word.  The HashRecord will be a node containing the word (again) and the count.
+
 // Note that you have to supply a toString for the HashRecord or you can't print the hash table.
+
 template <typename HashKey, typename HashRecord>
 class HashEntry
 {
