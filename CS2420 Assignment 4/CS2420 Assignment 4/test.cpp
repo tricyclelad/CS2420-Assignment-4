@@ -16,7 +16,7 @@ void readFile(string fileName, HashTable<string, HashRecord> &table);
 
 int main() {
     HashTable<string, HashRecord> tableInMain;
-    cout << "Here is what the empty hashTable looks like: " << tableInMain.toString() << endl;
+//    cout << "Here is what the empty hashTable looks like: " << tableInMain.toString() << endl;
     readFile("Game0.txt", tableInMain);
     tableInMain.makeEmpty();
     readFile("Game1.txt", tableInMain);
@@ -64,9 +64,17 @@ void readFile(string fileName, HashTable<string ,HashRecord> &table )
         {
             cout << fileWord << endl;
             
-            HashRecord *wordFrequency = new HashRecord(fileWord,0);
-            
-            table.insert(fileWord, wordFrequency);
+            if (table.find(fileWord))
+            {
+                HashRecord * temp = table.find(fileWord);
+                temp->ct++;
+            }
+            else
+            {
+                HashRecord *wordFrequency = new HashRecord(fileWord,0);
+                table.insert(fileWord, wordFrequency);
+            }
+           
             
            /*
             Pair *wordFrequency = new Pair(word,0);
