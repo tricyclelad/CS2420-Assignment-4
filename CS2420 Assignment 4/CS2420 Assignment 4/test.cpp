@@ -18,11 +18,15 @@ int main() {
     HashTable<string, HashRecord> tableInMain;
     cout << "Here is what the empty hashTable looks like: " << tableInMain.toString() << endl;
     readFile("Game0.txt", tableInMain);
-    
-//    readFile("Game1.txt");
-//    readFile("Game2.txt");
-//    readFile("Game3.txt");
-//    readFile("Game4.txt");
+    tableInMain.makeEmpty();
+    readFile("Game1.txt", tableInMain);
+    tableInMain.makeEmpty();
+    readFile("Game2.txt", tableInMain);
+    tableInMain.makeEmpty();
+    readFile("Game3.txt", tableInMain);
+    tableInMain.makeEmpty();
+    readFile("Game4.txt", tableInMain);
+    tableInMain.makeEmpty();
     
     
     
@@ -69,7 +73,7 @@ void readFile(string fileName, HashTable<string ,HashRecord> &table )
             hashTab.insert(word, wordFreqency)
             */
         }
-        cout << table.toString();
+        cout << table.toString(1000);
         
         char c;
         cin >> c;

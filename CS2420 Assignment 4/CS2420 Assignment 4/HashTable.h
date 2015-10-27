@@ -73,7 +73,7 @@ string HashTable<HashKey, HashRecord>::toString(int howMany)
     ss << "Current size " << hashTable.size() << endl;
     for (int i = 0; i < (int) hashTable.size() && ct < howMany; i++)
         if (hashTable[i].info == ACTIVE){
-            ss << hashTable[i].rec->toString() << " ";
+            ss << hashTable[i].rec->toString();
             ct++;
         }
     return ss.str();
