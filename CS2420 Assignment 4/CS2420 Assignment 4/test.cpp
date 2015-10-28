@@ -21,26 +21,18 @@ const int LETTER_VALUES[26]= {1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4
 
 int main() {
 
-    string phrase = "abcdefghijklmnopqrstuvwxyz";
-    for (int i = 0; i < 21; i++) {
-        cout << score(phrase, i)<< endl;
-
-    }
+    HashTable<string, HashRecord> tableInMain;
+    readFile("Game0.txt", tableInMain);
+    tableInMain.makeEmpty();
+    readFile("Game1.txt", tableInMain);
+    tableInMain.makeEmpty();
+    readFile("Game2.txt", tableInMain);
+    tableInMain.makeEmpty();
+    readFile("Game3.txt", tableInMain);
+    tableInMain.makeEmpty();
+    readFile("Game4.txt", tableInMain);
+    tableInMain.makeEmpty();
     
-//    HashTable<string, HashRecord> tableInMain;
-////    cout << "Here is what the empty hashTable looks like: " << tableInMain.toString() << endl;
-//    readFile("Game0.txt", tableInMain);
-////    HashRecord *temp = tableInMain.find("zion");
-//    tableInMain.makeEmpty();
-//    readFile("Game1.txt", tableInMain);
-//    tableInMain.makeEmpty();
-//    readFile("Game2.txt", tableInMain);
-//    tableInMain.makeEmpty();
-//    readFile("Game3.txt", tableInMain);
-//    tableInMain.makeEmpty();
-//    readFile("Game4.txt", tableInMain);
-//    tableInMain.makeEmpty();
-//    
 
     
 return 0;
@@ -76,18 +68,18 @@ void readFile(string fileName, HashTable<string ,HashRecord> &table )
         while (fin.getline(fileWord, 80))
         {
             
-//            cout << fileWord << endl;
-//            
-//            if (table.find(fileWord))
-//            {
-//                HashRecord * temp = table.find(fileWord);
-//                temp->ct++;
-//            }
-//            else
-//            {
-//                HashRecord *wordFrequency = new HashRecord(fileWord,1);
-//                table.insert(fileWord, wordFrequency);
-//            }
+           // cout << fileWord << endl;
+            
+            if (table.find(fileWord)) //if the word is there, just update the frequency
+            {
+                HashRecord * temp = table.find(fileWord);
+                temp->ct++;
+            }
+            else
+            {
+                HashRecord *wordFrequency = new HashRecord(fileWord,1);
+                table.insert(fileWord, wordFrequency);
+            }
            
             
            /*
