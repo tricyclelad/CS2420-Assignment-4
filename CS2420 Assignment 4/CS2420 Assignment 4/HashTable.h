@@ -62,6 +62,7 @@ private:
     unsigned int myhash(const HashKey & x) const;
     //size_t myhash(const HashKey & x) const;
     int findPos(const HashKey & x) const;
+    unsigned int step(const HashKey & x) const;
     void rehash();
 };
 
@@ -81,27 +82,54 @@ string HashTable<HashKey, HashRecord>::toString(int howMany)
     
 }
 
-// return the subscript where x is located in the hash table.
-// Quadratic probing is used.  Can you figure out why this implements quadratic probing?
-
-
 template <typename HashKey, typename HashRecord>
 int HashTable<HashKey, HashRecord>::findPos(const HashKey & x) const
 {
-    int offset = 1;
     int currentPos = myhash(x);
     
     while (hashTable[currentPos].info != EMPTY &&
-           hashTable[currentPos].key != x)
+                      hashTable[currentPos].key != x)
     {
-        currentPos += offset;  // Compute ith probe
-        offset += 2;
+        currentPos += step(x);  // Compute ith probe
+        
         if (currentPos >= (int)hashTable.size())    // Cheaper than  mod
-            currentPos -= hashTable.size();
+                       currentPos -= hashTable.size();
     }
-    
-    return currentPos;
+               return currentPos;
 };
+
+template <typename HashKey, typename HashRecord>
+unsigned int HashTable<HashKey, HashRecord>::step(const HashKey & x) const
+{
+
+    unsigned int stepVal=0;
+    
+    for (int i =0; i < x.length(); i++)
+        stepVal =  (stepVal << 7) ^ x[i]  ^ stepVal;
+    
+    return 1 + stepVal %(hashTable.size()-2);
+}
+
+// return the subscript where x is located in the hash table.
+// Quadratic probing is used.  Can you figure out why this implements quadratic probing?
+
+//template <typename HashKey, typename HashRecord>
+//int HashTable<HashKey, HashRecord>::findPos(const HashKey & x) const
+//{
+//    int offset = 1;
+//    int currentPos = myhash(x);
+//    
+//    while (hashTable[currentPos].info != EMPTY &&
+//           hashTable[currentPos].key != x)
+//    {
+//        currentPos += offset;  // Compute ith probe
+//        offset += 2;
+//        if (currentPos >= (int)hashTable.size())    // Cheaper than  mod
+//            currentPos -= hashTable.size();
+//    }
+//    
+//    return currentPos;
+//};
 
 // Remove all elements of the table by setting status to empty.
 // Have you seen the range based loop for accessing elements of a vector?
@@ -147,7 +175,7 @@ bool HashTable<HashKey, HashRecord>::isActive(int currentPos) const
 
 template<typename HashKey, typename HashRecord>
 unsigned int HashTable<HashKey, HashRecord>::myhash(const HashKey & x) const
-{
+{//Bernstein Hash
     unsigned int hash=0;
     for (int i =0; i < x.length(); i++) {
         hash = (hash << 5) ^ x[i] ^ hash;

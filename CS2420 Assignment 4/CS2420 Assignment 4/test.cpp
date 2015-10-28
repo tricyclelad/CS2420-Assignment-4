@@ -92,7 +92,7 @@ void readFile(string fileName, HashTable<string ,HashRecord> &table, int records
         }
         //Print out the hashTable
         cout << table.toString(records);
-        
+        cout << "Enter 't' to continue" << endl;
         char c;
         cin >> c;
         
