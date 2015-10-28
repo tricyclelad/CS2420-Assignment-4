@@ -32,6 +32,6 @@ HashRecord::HashRecord(const HashRecord &rhs)//copy Constructor
 string HashRecord::toString() const
 {
     stringstream ss;
-    ss << word << " " << ct << endl;
+    ss << word << ", freq: " << ct;
     return ss.str();
 }

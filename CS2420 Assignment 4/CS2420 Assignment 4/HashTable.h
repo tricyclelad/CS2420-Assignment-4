@@ -14,6 +14,7 @@
 #include <functional>
 #include <string>
 #include <sstream>
+#include "Score.h"
 using namespace std;
 
 int nextPrime(int n);
@@ -47,21 +48,30 @@ public:
     bool remove(const HashKey & x);
     bool isEmpty() { return activeElements == 0; }
     HashRecord * insert(const HashKey x, HashRecord * h);
-    HashTable(int size = 977) : hashTable(nextPrime(size))
+    HashTable(int size = 997) : hashTable(nextPrime(size))
     {
         makeEmpty();
     };
-    HashRecord *find(const HashKey & x) const;
+    HashRecord *find(const HashKey & x) ;
     void makeEmpty();
     string toString(int howMany = 50);
-    
+    void setScore(int num)
+    {
+        totalScore = num;
+    }
+    int getScore(){return totalScore;}
+    int totalScore = 0;
+    int numberOfProbes = 0;
+    int numberOfFinds = 0;
+    int numberOfRecords = 0;
 private:
+    
     vector<HashEntry<HashKey, HashRecord>> hashTable;
     int activeElements;
     bool isActive(int currentPos) const;
     unsigned int myhash(const HashKey & x) const;
     //size_t myhash(const HashKey & x) const;
-    int findPos(const HashKey & x) const;
+    int findPos(const HashKey & x) ;
     unsigned int step(const HashKey & x) const;
     void rehash();
 };
@@ -72,18 +82,22 @@ string HashTable<HashKey, HashRecord>::toString(int howMany)
 {
     int ct = 0;
     stringstream ss;
-    ss << "Current size " << hashTable.size() << endl;
     for (int i = 0; i < (int) hashTable.size() && ct < howMany; i++)
         if (hashTable[i].info == ACTIVE){
-            ss << hashTable[i].rec->toString();
+            ss << hashTable[i].rec->toString() << endl;
             ct++;
         }
+    ss << "\nTotal score: " << totalScore << endl;
+    ss << "Total number of finds: " << numberOfFinds << endl;
+    ss << "Total number of probes: " << numberOfProbes << endl;
+    ss << "Total number of items stored in hash map: " << numberOfRecords << endl;
+    ss << "Current size of table: " << hashTable.size() << endl;
     return ss.str();
     
 }
 
 template <typename HashKey, typename HashRecord>
-int HashTable<HashKey, HashRecord>::findPos(const HashKey & x) const
+int HashTable<HashKey, HashRecord>::findPos(const HashKey & x)
 {
     int currentPos = myhash(x);
     
@@ -91,10 +105,11 @@ int HashTable<HashKey, HashRecord>::findPos(const HashKey & x) const
                       hashTable[currentPos].key != x)
     {
         currentPos += step(x);  // Compute ith probe
-        
+        numberOfProbes++;
         if (currentPos >= (int)hashTable.size())    // Cheaper than  mod
                        currentPos -= hashTable.size();
     }
+    
                return currentPos;
 };
 
@@ -214,7 +229,7 @@ HashRecord * HashTable<HashKey, HashRecord>::insert(const HashKey x, HashRecord 
     hashTable[currentPos].key = x;
     hashTable[currentPos].rec = h;
     hashTable[currentPos].info = ACTIVE;
-    
+    numberOfRecords++;
     // Rehash; see Section 5.5
     if (++activeElements > (int)(hashTable.size() / 2))
         rehash();
@@ -224,11 +239,14 @@ HashRecord * HashTable<HashKey, HashRecord>::insert(const HashKey x, HashRecord 
 
 // Return record for item with key x.
 template<typename HashKey, typename HashRecord>
-HashRecord * HashTable<HashKey, HashRecord>::find(const HashKey & x) const
+HashRecord * HashTable<HashKey, HashRecord>::find(const HashKey & x)
 {
     int pos = findPos(x);
     if (isActive(pos))
+    {
+        numberOfFinds++;
         return hashTable[pos].rec;
+    }
     return NULL;
 };
 

@@ -10,31 +10,38 @@
 #include <fstream>
 #include "HashTable.h"
 #include "HashRecord.h"
+#include "Score.h"
+
 using namespace std;
 
 void readFile(string , HashTable<string, HashRecord> &, int numberOfRecords);
-int score(string , int);
-int sumOfLetters(string);
-int lengthValue(string);
-int bonus(int);
-const int LETTER_VALUES[26]= {1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10};
 
 int main() {
     
-    //Dear grader, Here is the number of records in the hashmap to be printed out
-    int numberOfRecords = 1000;
-    HashTable<string, HashRecord> tableInMain;
+    /*  Dear grader, Here is the number of records in the hashmap to be printed out
+        When you print out the first 50 records, the frequency will start counting at zero.
+        For example if the word dog was in the hashmap once, it will print in the console
+        dog, freq: 0
+        So dog shows up exactly once in the hashmap, not zero times
+     */
     
-    readFile("Game0.txt", tableInMain, numberOfRecords);
-    tableInMain.makeEmpty();
-    readFile("Game1.txt", tableInMain, numberOfRecords);
-    tableInMain.makeEmpty();
-    readFile("Game2.txt", tableInMain, numberOfRecords);
-    tableInMain.makeEmpty();
-    readFile("Game3.txt", tableInMain, numberOfRecords);
-    tableInMain.makeEmpty();
-    readFile("Game4.txt", tableInMain, numberOfRecords);
-    tableInMain.makeEmpty();
+    int numberOfRecords = 50;
+    HashTable<string, HashRecord> table0;
+    HashTable<string, HashRecord> table1;
+    HashTable<string, HashRecord> table2;
+    HashTable<string, HashRecord> table3;
+    HashTable<string, HashRecord> table4;
+    
+    readFile("Game0.txt", table0, numberOfRecords);
+    table0.makeEmpty();
+    readFile("Game1.txt", table1, numberOfRecords);
+    table1.makeEmpty();
+    readFile("Game2.txt", table2, numberOfRecords);
+    table2.makeEmpty();
+    readFile("Game3.txt", table3, numberOfRecords);
+    table3.makeEmpty();
+    readFile("Game4.txt", table4, numberOfRecords);
+    table4.makeEmpty();
     
 
     
@@ -46,7 +53,6 @@ void readFile(string fileName, HashTable<string ,HashRecord> &table, int records
     ifstream fin;
     
     fin.open(fileName);
-    
     
     if (fin.fail())   // callling the member function to verify
     {
@@ -67,7 +73,6 @@ void readFile(string fileName, HashTable<string ,HashRecord> &table, int records
          cout << info << endl ;
          }
          */
-        
         while (fin.getline(fileWord, 80))
         {
             
@@ -77,20 +82,22 @@ void readFile(string fileName, HashTable<string ,HashRecord> &table, int records
             {
                 HashRecord * temp = table.find(fileWord);
                 temp->ct++;
+                table.totalScore +=score(fileWord, temp->ct);
+                cout << "Score for " << fileWord << " is " << score(fileWord, temp->ct) << endl;
+                cout << "Total Score is " << table.totalScore << endl;
             }
             else
             {
-                HashRecord *wordFrequency = new HashRecord(fileWord,1);
+                HashRecord *wordFrequency = new HashRecord(fileWord,0);
                 table.insert(fileWord, wordFrequency);
+                table.totalScore +=score(fileWord, 0);
+                cout << "Score for " << fileWord << " is " << score(fileWord, 0) << endl;
+                cout << "Total Score is " << table.totalScore << endl;
             }
-           
             
-           /*
-            Pair *wordFrequency = new Pair(word,0);
-            hashTab.insert(word, wordFreqency)
-            */
         }
         //Print out the hashTable
+        cout << "\nthe information for the first " << records << " files in the hashmap are: " << endl;
         cout << table.toString(records);
         cout << "Enter 't' to continue" << endl;
         char c;
@@ -104,54 +111,5 @@ void readFile(string fileName, HashTable<string ,HashRecord> &table, int records
     }
 }
 
-int score(string word, int freq)
-{
-    int wordScore = (sumOfLetters(word))*(lengthValue(word))*bonus(freq);
-    return wordScore;
-}
-
-int sumOfLetters(string word)
-{
-    int sum = 0;
-    int index = 0;
-    char letter = ' ';
-    
-    for(int i = 0; i < word.size(); i++)
-    {
-        letter = word[i];
-        index = letter - 'a';
-        sum += LETTER_VALUES[index];
-    }
-    return sum;
-}
-int lengthValue(string word)
-{
-    unsigned long lenVal = word.size();
-    int ans = int(lenVal);
-    if (lenVal <= 2)
-    {
-        return 0;
-    }
-    if (lenVal >= 8)
-    {
-        return 6;
-    }
-    return ans-2;
-}
-int bonus(int freq)
-{
-    if (freq == 0) {
-        return 5;
-    } else if(freq >=1 && freq<=5) {
-        return 4;
-    } else if(freq >=6 && freq<=10) {
-        return 3;
-    } else if(freq >=11 && freq<=15) {
-        return 2;
-    }
-    
-    return 1;
-    
-}
 
 

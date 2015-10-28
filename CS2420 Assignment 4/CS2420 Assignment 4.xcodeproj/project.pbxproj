@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		405D02AC1BDEF31800FBEDC5 /* HashRecord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 405D02AA1BDEF31800FBEDC5 /* HashRecord.cpp */; };
+		405D02B51BE06A3E00FBEDC5 /* Score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 405D02B31BE06A3E00FBEDC5 /* Score.cpp */; };
 		40EB2B511BDBFFC9000BBA38 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40EB2B501BDBFFC9000BBA38 /* test.cpp */; };
 		40EB2B591BDC002A000BBA38 /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40EB2B571BDC002A000BBA38 /* HashTable.cpp */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,8 @@
 /* Begin PBXFileReference section */
 		405D02AA1BDEF31800FBEDC5 /* HashRecord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashRecord.cpp; sourceTree = "<group>"; };
 		405D02AB1BDEF31800FBEDC5 /* HashRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashRecord.h; sourceTree = "<group>"; };
+		405D02B31BE06A3E00FBEDC5 /* Score.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Score.cpp; sourceTree = "<group>"; };
+		405D02B41BE06A3E00FBEDC5 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
 		40EB2B4D1BDBFFC9000BBA38 /* CS2420 Assignment 4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CS2420 Assignment 4"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40EB2B501BDBFFC9000BBA38 /* test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
 		40EB2B571BDC002A000BBA38 /* HashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				40EB2B581BDC002A000BBA38 /* HashTable.h */,
 				405D02AA1BDEF31800FBEDC5 /* HashRecord.cpp */,
 				405D02AB1BDEF31800FBEDC5 /* HashRecord.h */,
+				405D02B31BE06A3E00FBEDC5 /* Score.cpp */,
+				405D02B41BE06A3E00FBEDC5 /* Score.h */,
 			);
 			path = "CS2420 Assignment 4";
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			files = (
 				40EB2B591BDC002A000BBA38 /* HashTable.cpp in Sources */,
 				40EB2B511BDBFFC9000BBA38 /* test.cpp in Sources */,
+				405D02B51BE06A3E00FBEDC5 /* Score.cpp in Sources */,
 				405D02AC1BDEF31800FBEDC5 /* HashRecord.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
