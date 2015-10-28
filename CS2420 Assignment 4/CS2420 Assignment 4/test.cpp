@@ -12,7 +12,7 @@
 #include "HashRecord.h"
 using namespace std;
 
-void readFile(string , HashTable<string, HashRecord> &);
+void readFile(string , HashTable<string, HashRecord> &, int numberOfRecords);
 int score(string , int);
 int sumOfLetters(string);
 int lengthValue(string);
@@ -20,17 +20,20 @@ int bonus(int);
 const int LETTER_VALUES[26]= {1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10};
 
 int main() {
-
+    
+    //Dear grader, Here is the number of records in the hashmap to be printed out
+    int numberOfRecords = 1000;
     HashTable<string, HashRecord> tableInMain;
-    readFile("Game0.txt", tableInMain);
+    
+    readFile("Game0.txt", tableInMain, numberOfRecords);
     tableInMain.makeEmpty();
-    readFile("Game1.txt", tableInMain);
+    readFile("Game1.txt", tableInMain, numberOfRecords);
     tableInMain.makeEmpty();
-    readFile("Game2.txt", tableInMain);
+    readFile("Game2.txt", tableInMain, numberOfRecords);
     tableInMain.makeEmpty();
-    readFile("Game3.txt", tableInMain);
+    readFile("Game3.txt", tableInMain, numberOfRecords);
     tableInMain.makeEmpty();
-    readFile("Game4.txt", tableInMain);
+    readFile("Game4.txt", tableInMain, numberOfRecords);
     tableInMain.makeEmpty();
     
 
@@ -38,7 +41,7 @@ int main() {
 return 0;
 }
 
-void readFile(string fileName, HashTable<string ,HashRecord> &table )
+void readFile(string fileName, HashTable<string ,HashRecord> &table, int records)
 {
     ifstream fin;
     
@@ -53,7 +56,7 @@ void readFile(string fileName, HashTable<string ,HashRecord> &table )
     else
     {
         cout << "the file " << fileName << " was found" << endl ;
-        cout << "the information in the file is as follows: " << endl ;
+        //cout << "the information in the file is as follows: " << endl ;
         char fileWord[80] ;
         //string fileWord = " ";
         
@@ -87,7 +90,8 @@ void readFile(string fileName, HashTable<string ,HashRecord> &table )
             hashTab.insert(word, wordFreqency)
             */
         }
-        cout << table.toString(1000);
+        //Print out the hashTable
+        cout << table.toString(records);
         
         char c;
         cin >> c;

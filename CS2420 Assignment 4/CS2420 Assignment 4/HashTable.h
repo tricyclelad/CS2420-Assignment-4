@@ -59,7 +59,8 @@ private:
     vector<HashEntry<HashKey, HashRecord>> hashTable;
     int activeElements;
     bool isActive(int currentPos) const;
-    size_t myhash(const HashKey & x) const;
+    unsigned int myhash(const HashKey & x) const;
+    //size_t myhash(const HashKey & x) const;
     int findPos(const HashKey & x) const;
     void rehash();
 };
@@ -82,6 +83,8 @@ string HashTable<HashKey, HashRecord>::toString(int howMany)
 
 // return the subscript where x is located in the hash table.
 // Quadratic probing is used.  Can you figure out why this implements quadratic probing?
+
+
 template <typename HashKey, typename HashRecord>
 int HashTable<HashKey, HashRecord>::findPos(const HashKey & x) const
 {
@@ -140,12 +143,23 @@ bool HashTable<HashKey, HashRecord>::isActive(int currentPos) const
 };
 
 // use built=in hash functions to find a location.
+
+
 template<typename HashKey, typename HashRecord>
-size_t HashTable<HashKey, HashRecord>::myhash(const HashKey & x) const
+unsigned int HashTable<HashKey, HashRecord>::myhash(const HashKey & x) const
 {
-    static hash<HashKey> hf;
-    return hf(x) % hashTable.size();
+    unsigned int hash=0;
+    for (int i =0; i < x.length(); i++) {
+        hash = (hash << 5) ^ x[i] ^ hash;
+    }
+    return hash % hashTable.size();
 };
+//template<typename HashKey, typename HashRecord>
+//size_t HashTable<HashKey, HashRecord>::myhash(const HashKey & x) const
+//{
+//    static hash<HashKey> hf;
+//    return hf(x) % hashTable.size();
+//};
 
 // Use lazy deletion to remove an element
 // Return boolean to indicate success of operation
